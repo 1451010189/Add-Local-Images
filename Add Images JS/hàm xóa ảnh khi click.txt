@@ -1,0 +1,15 @@
+<script>
+$(document).on('click',".deletebutton" ,function() {
+ $(this).closest(".removethis" ).remove();
+});
+</script>
+or you can use parent()
+
+<script>
+    $(document).on('click',".deletebutton" ,function() {
+     $(this).parent().parent().parent().remove();
+    });
+</script>
+if you dynamically append this data just use
+
+$(document).on('click',".deletebutton" , function(){});  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Thêm Ảnh</title>	
+	<link rel="stylesheet" type="text/css" href="style.css">	
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<!-- Jquery -->
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	
+</head>
+<body>	
+		<span id="previewImg"></span>   <!-- span hứng images chọn từ fle -->
+		<input class="hinh" type="image" src="add.JPG" width="100px"/> <!-- ảnh để chọn file -->
+	    <input style="display: none" type='file' id="files" name="image" multiple="multiple" />
+						
+	<!-- sự kiện click into images -->
+	<script type="text/javascript">
+	    $(document).ready(function(){
+		    $("input[type='image']").click(function() {
+	    		$("input[id='files']").click();
+			});
+	 	});	    				
+	</script>	
+	<!-- hàm chọn ảnh -->
+	<script type="text/javascript" src="handleFileSelect.js"></script> 
+
+
+	<!-- hàm xóa ảnh -->
+	<script type="text/javascript">
+		 $(document).on('click',".time" ,function() {	
+   			  	if(confirm("Bạn Có Muốn Xóa ?"))
+   			  	{
+   			  		 $(this).closest("span" ).fadeOut(); 
+   			  		 $("#files").val(null); //xóa tên của file trong input
+   			  	}
+				else
+					return false;
+			});
+
+	</script>
+	<!--  có thể dùng hàm closest().remover(),parent().remove(),fadeOut(),fadeToggle()
+			  //$(document).on('click',".time" ,function() {
+		 	    //$(this).parent().remove();
+		 	    //});	 
+	-->     
+	
+</body>
+</html>
